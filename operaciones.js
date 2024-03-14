@@ -6,8 +6,10 @@ const resta = (a, b) => {
 
 const suma = (a, b) => a + b;
 
-module.exports = {
+/* module.exports = {
 
     suma,
     resta
-}
+} */
+
+export { suma, resta }

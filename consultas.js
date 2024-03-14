@@ -6,5 +6,8 @@ const saludo = (name) => {
 
 
 
+/* es5 */
+/* module.exports = saludo */
 
-module.exports = saludo
+/* es6 */
+export default saludo

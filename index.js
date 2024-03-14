@@ -1,7 +1,11 @@
-const express = require('express');
-const saludo = require('./consultas');
+import express from "express";
+import saludo from "./consultas.js";
+import { suma, resta } from "./operaciones.js";
+
+/* const express = require('express'); */
+/* const saludo = require('./consultas');
 const { suma } = require('./operaciones');
-const { resta } = require('./operaciones');
+const { resta } = require('./operaciones'); */
 const app = express();
 const port = 3005 
 
@@ -21,9 +25,11 @@ app.get('/saludo', (req, res) => {
 res.send(saludo('Jessica') + " " + suma(50, 24) + " y la resta es: " + resta(18, 7))
 }) 
 
-app.get('toctoc', (req, res) => res.send('<h1>¿Quien es?</h1>'));
+app.get('/saludo2', (req, res) => res.send(saludo('Jessica')));
 
-app.get('contact', (req, res) => res.json({ name: 'John', age: 30 }));
+app.get('/toctoc', (req, res) => res.send('<h1>¿Quien es?</h1>'));
+
+app.get('/contact', (req, res) => res.json({ name: 'John', age: 30 }));
 
 app.get('product', (req, res) => res.send('Product page!'));
 app.get("/product/id/:producto/:page", (req, res) =>
