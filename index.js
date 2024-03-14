@@ -1,6 +1,7 @@
 const express = require('express');
-
-
+const saludo = require('./consultas');
+const { suma } = require('./operaciones');
+const { resta } = require('./operaciones');
 const app = express();
 const port = 3005 
 
@@ -14,13 +15,19 @@ app.get('/about', (req, res) => {
 
 })
 
+app.get('/saludo', (req, res) => {
+    
+
+res.send(saludo('Jessica') + " " + suma(50, 24) + " y la resta es: " + resta(18, 7))
+}) 
+
 app.get('toctoc', (req, res) => res.send('<h1>¿Quien es?</h1>'));
 
 app.get('contact', (req, res) => res.json({ name: 'John', age: 30 }));
 
 app.get('product', (req, res) => res.send('Product page!'));
-app.get("/product/:id", (req, res) =>
-  res.send("Product " + req.params.id + " page!")
+app.get("/product/id/:producto/:page", (req, res) =>
+  res.send("Product " + req.params.Producto + " page! + " + req.params.page)
 );
 
 app.put('/update', (req, res) => res.send('ruta put'));
